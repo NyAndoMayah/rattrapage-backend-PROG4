@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/patrimoines")
 public class PatrimoineController {
-    @GetMapping
+    private static PatrimoineService service;
+    @GetMapping("/{id}")
     public static Patrimoine patrimoineParId (@PathVariable String id) {
-        return null;
+        return service.patrimoineParId(id);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public static Patrimoine creerOuEditerPatrimoine (@PathVariable String id, @RequestBody Patrimoine patrimoine) {
-        return null;
+        return service
+                .creerOuEditerPatrimoine(id, patrimoine);
     }
 }

@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class Patrimoine {
+    private String id;
     private String possesseur;
     private LocalDateTime derniereModification;
 }

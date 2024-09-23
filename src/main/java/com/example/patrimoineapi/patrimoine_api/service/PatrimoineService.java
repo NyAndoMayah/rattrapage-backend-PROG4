@@ -1,16 +1,23 @@
 package com.example.patrimoineapi.patrimoine_api.service;
 
 import com.example.patrimoineapi.patrimoine_api.model.Patrimoine;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class PatrimoineService {
-    public static Patrimoine patrimoineParId (String id) {
-        return null;
+    private final Map<String, Patrimoine> bdPatrimoines = new HashMap<>();
+
+    public Patrimoine patrimoineParId (String id) {
+        return bdPatrimoines
+                .get(id);
     }
-    public static Patrimoine creerOuEditerPatrimoine (String id, Patrimoine patrimoine) {
-        return null;
+
+    public Patrimoine creerOuEditerPatrimoine (String id, Patrimoine patrimoine) {
+        bdPatrimoines.put(id, patrimoine);
+        return patrimoine;
     }
 }
 
